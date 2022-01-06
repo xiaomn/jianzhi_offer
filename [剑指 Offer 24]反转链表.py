@@ -28,13 +28,13 @@
 
 class Solution:
     # method one
-    # def reverseList(self, head: ListNode) -> ListNode:
-    #     if not head or not head.next:
-    #         return head
-    #     node = self.reverseList(head.next)
-    #     head.next.next = head
-    #     head.next = None
-    #     return node
+    def reverseList(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        node = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return node
 
     # method two
     def reverseList(self, head: ListNode) -> ListNode:
