@@ -32,13 +32,17 @@
 class CQueue:
 
     def __init__(self):
+        # 用来保存插入的数据
         self.stack_add = []
+        # 用来保存要删除的数据
         self.stack_delete = []
 
     def appendTail(self, value: int) -> None:
+        # 直接插入到栈的尾部
         self.stack_add.append(value)
 
     def deleteHead(self) -> int:
+        # 如果保存要删除的数据的栈空了，就先把另一个栈的数据出栈同时插入到这个栈中，此时栈里面的数据经过两次后进先出就变成先进先出了
         if not self.stack_delete:
             while self.stack_add:
                 self.stack_delete.append(self.stack_add.pop())
